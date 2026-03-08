@@ -1,6 +1,6 @@
 /**
  * TODO
- *  - change every mention of 2025 
+ *  - change every mention of 2026 
  *  - check and adjust new dates 
  *  - check and adjust date of competition
  *  - do the same in app scripts for excel sheet
@@ -25,8 +25,8 @@ $(document).ready(function () {
             var $form = $(e.target);
             $form.validate();
             // Use Ajax to submit form data
-            // Change this after new implementation of 2025
-            var url = 'https://script.google.com/macros/s/AKfycbyxU2HFj6pkjMF-p350KruT2f3QtGTCcwnUCX25czCt0vsyIaAh9Yupcim2vRLF75e0/exec';
+            // Change this after new implementation of 2026
+            var url = 'https://script.google.com/macros/s/AKfycbyW4UA3xXf1iEAj4_86613gzZDVlL74SB8qqDu3v9D0dgwu6HPK-VbV6dnGaWpVT0dm/exec';
             console.log('data: ', $form.serialize());
             // Show Loading
             startLoading();
@@ -165,24 +165,24 @@ let categoriesElem = document.getElementById('category');
 function changeCategory() {
     const availableDays = [];
     switch ($('#category option:selected').val()) {
-        case 'flauta_priecna':
-        case 'flauta_zobcova':
-            availableDays.push('9. máj 2025 (piatok), RUŽOMBEROK');
+        case 'dych':
+            availableDays.push('8. máj 2026 (piatok), RUŽOMBEROK');
             break;
         case 'akordeon':
         case 'heligonka':
-            availableDays.push('2. máj 2025 (piatok), RUŽOMBEROK');
-            availableDays.push('7. máj 2025 (streda), HRUŠTÍN');
+            availableDays.push('8. máj 2026 (piatok), RUŽOMBEROK');
+            availableDays.push('11. máj 2026 (pondelok), HRUŠTÍN');
             break;
         case 'spev':
-            availableDays.push('14. máj 2025 (streda), RUŽOMBEROK');
+            availableDays.push('12. máj 2026 (utorok), RUŽOMBEROK');
             break;
         case 'gitara':
-            availableDays.push('13. máj 2025 (utorok), RUŽOMBEROK');
+            availableDays.push('6. máj 2026 (streda), RUŽOMBEROK');
             break;
         case 'klavir':
-            availableDays.push('14. máj 2025 (streda) HRUŠTÍN');
-            availableDays.push('15. máj a 16. máj 2025 (štvrtok, piatok) RUŽOMBEROK');
+            availableDays.push('7. máj 2026 (štvrtok) HRUŠTÍN');
+            availableDays.push('14. máj 2026 (streda, štvrtok) RUŽOMBEROK');
+            availableDays.push('15. máj 2026 (piatok) RUŽOMBEROK');
             break;
         default:
             console.log('somethings wrong: ', $('#category option:selected').val())
@@ -244,7 +244,8 @@ function newOption(opt) {
 function removeCorepetitor() {
     if (categoriesElem.value !== "spev" &&
         categoriesElem.value !== "flauta_priecna" &&
-        categoriesElem.value !== "flauta_zobcova") {
+        categoriesElem.value !== "flauta_zobcova" &&
+        categoriesElem.value !== "dych") {
         $('#main-tab-content').removeClass('tab-content-XL');
         $('#main-tab-content').addClass('tab-content-L');
         $('#corepetitor-field').hide();
@@ -315,8 +316,8 @@ function _calculateAge(birthday, competitionDay) { // birthday is a date
 }
 
 function getDateOfComp(date) {
-    const monthOfComp = '04/'; // change according to date of competition in 2025
-    const compDate = new Date(monthOfComp + date.split('.')[0] + '/2025');
+    const monthOfComp = '05/'; // change according to date of competition in 2026
+    const compDate = new Date(monthOfComp + date.split('.')[0] + '/2026');
     console.log('get date from ', date, compDate);
     return compDate;
 }
@@ -364,22 +365,22 @@ function addTeachers() {
         'Baloh Yulianna',
         'Foltin Jozef',
         'Hrbčeková Jana',
+        'Hulejová Zuzana',
         'Jakabová Michaela',
         'Jánošová Anna',
         'Khakimova Azhar',
         'Kočalka Tomáš',
         'Kochlicová Dominika',
-        'Król Michal',
         'Kuruc Miroslav',
         'Maderová Vanesa',
         'Marich Kostiantyn',
+        'Milan Radovan',
         'Mišenko Jozef',
         'Mliečková Katarína',
         'Mudička Juraj',
         'Mudičková Miroslava',
         'Nepomniashchyi Dmytro',
         'Pašková Monika',
-        'Poledňa Miroslav',
         'Procházková Martina',
         'Púčeková Lucia',
         'Rázgová Simona',
@@ -391,7 +392,6 @@ function addTeachers() {
         'Štefaničiaková Elena',
         'Timková Terézia',
         'Uličná Lucia',
-        'Uličný Tomáš'
     ];
     $.each(teachers, function (i, p) {
         $('#teacher').append($('<option></option>').val(p).html(p));
