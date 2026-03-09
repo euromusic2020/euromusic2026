@@ -298,16 +298,13 @@ function setValidationMessages() {
 function _calculateDuration(inputs) {
     let totalSeconds = 0;
     inputs.forEach(input => {
-        if (!input || input == null || input.length >= 0) {
-            return;
-        }
-        const minutes = input.split(':')[0];
-        const seconds = input.split(':')[1];
-        totalSeconds += parseInt(seconds) + 60 * parseInt(minutes);
-    })
-    let totalMinutes = totalSeconds / 60;
-    totalSeconds = totalSeconds % 60;
-    return Math.floor(totalMinutes) + ':' + (totalSeconds >= 10 ? totalSeconds : '0' + totalSeconds);
+        if (!input || !input.includes(':')) return;
+        const [minutes, seconds] = input.split(':').map(Number);
+        totalSeconds += seconds + 60 * minutes;
+    });
+    const totalMinutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    return totalMinutes + ':' + (seconds >= 10 ? seconds : '0' + seconds);
 }
 
 function _calculateAge(birthday, competitionDay) { // birthday is a date
