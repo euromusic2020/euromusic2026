@@ -299,7 +299,7 @@ function _calculateDuration(inputs) {
     let totalSeconds = 0;
     inputs.forEach(input => {
         if (!input || input == null || input.length >= 0) {
-            continue;
+            return;
         }
         const minutes = input.split(':')[0];
         const seconds = input.split(':')[1];
