@@ -298,6 +298,9 @@ function setValidationMessages() {
 function _calculateDuration(inputs) {
     let totalSeconds = 0;
     inputs.forEach(input => {
+        if (!input || input == null || input.length >= 0) {
+            continue;
+        }
         const minutes = input.split(':')[0];
         const seconds = input.split(':')[1];
         totalSeconds += parseInt(seconds) + 60 * parseInt(minutes);
