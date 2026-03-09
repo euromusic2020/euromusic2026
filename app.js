@@ -164,7 +164,8 @@ let categoriesElem = document.getElementById('category');
 
 function changeCategory() {
     const availableDays = [];
-    switch ($('#category option:selected').val()) {
+    const category = $('#category option:selected').val();
+    switch (category) {
         case 'dych':
             availableDays.push('8. máj 2026 (piatok), RUŽOMBEROK');
             break;
@@ -190,6 +191,7 @@ function changeCategory() {
     setAvailableDays(availableDays);
     // setSongTitle($('#category option:selected').val());
     removeCorepetitor();
+    fixThirdSong(category === 'spev');
 }
 
 function setSongTitle(cat) {
@@ -346,6 +348,18 @@ function setInputFilter(textbox, inputFilter) {
             }
         });
     });
+}
+
+function fixThirdSong(isSpev) {
+    if (isSpev) {
+        $('input[#composer_3]',this).prop("required", false).val("");
+        $('input[#title_3]',this).prop("required", false).val("");
+        $('input[#length_3]',this).prop("required", false).val("");
+    } else {
+        $('input[#composer_3]',this).prop("required", true);
+        $('input[#title_3]',this).prop("required", true);
+        $('input[#length_3]',this).prop("required", true);
+    }
 }
 
 $.fn.isInViewport = function () {
