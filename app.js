@@ -351,14 +351,10 @@ function setInputFilter(textbox, inputFilter) {
 }
 
 function fixThirdSong(isSpev) {
+    const inputs = $('#composer_3, #title_3, #length_3');
+    inputs.prop("required", !isSpev);
     if (isSpev) {
-        $('input[#composer_3]',this).prop("required", false).val("");
-        $('input[#title_3]',this).prop("required", false).val("");
-        $('input[#length_3]',this).prop("required", false).val("");
-    } else {
-        $('input[#composer_3]',this).prop("required", true);
-        $('input[#title_3]',this).prop("required", true);
-        $('input[#length_3]',this).prop("required", true);
+        inputs.val("");
     }
 }
 
