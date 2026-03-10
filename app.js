@@ -182,8 +182,8 @@ function changeCategory() {
             break;
         case 'klavir':
             availableDays.push('7. máj 2026 (štvrtok) HRUŠTÍN');
-            availableDays.push('14. máj 2026 (streda, štvrtok) RUŽOMBEROK');
-            availableDays.push('15. máj 2026 (piatok) RUŽOMBEROK');
+            availableDays.push('14. máj 2026 (Initial, G1, G2) RUŽOMBEROK');
+            availableDays.push('15. máj 2026 (G3 - G6) RUŽOMBEROK');
             break;
         default:
             console.log('somethings wrong: ', $('#category option:selected').val())
